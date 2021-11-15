@@ -11,24 +11,18 @@ let stopAnimation = true;
 let max;
 let min;
 
-const funcRandomizeMax = function() {
+const funcRandomize = function() {
     let r;
     r = Math.round(Math.random() * 100) * 5 + 110;
     return r;
 }
 
-const funcRandomizeMin = function() {
-    let r;
-    r = Math.round(Math.random() * 100) * 5 + 110;
-    return r;
-}
-
-max = funcRandomizeMax();
-min = funcRandomizeMin();
+max = funcRandomize();
+min = funcRandomize();
 
 const anime = () => {
     while (max < min) {
-        min = funcRandomizeMin();
+        min = funcRandomize();
     }
     console.log(max)
     console.log(min)
@@ -37,7 +31,7 @@ const anime = () => {
         count = count + 5;
         if (count >= max) {
             rise = false;
-            max = funcRandomizeMax();
+            max = funcRandomize();
         } else {
             plain.style.width = count + 'px';
             plain.style.height = count + 'px';
@@ -49,7 +43,7 @@ const anime = () => {
         count = count - 5;
         if (count <= min) {
             rise = true;
-            min = funcRandomizeMin();
+            min = funcRandomize();
         } else {
             plain.style.width = count + 'px';
             plain.style.height = count + 'px';
@@ -76,8 +70,8 @@ reset.addEventListener('click', () => {
     plain.style.width = count + 'px';
     plain.style.height = count + 'px';
     rise = true;
-    max = funcRandomizeMax();
-    min = funcRandomizeMin();
+    max = funcRandomize();
+    min = funcRandomize();
     el.style.display = 'none'
 })
 
